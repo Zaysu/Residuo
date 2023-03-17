@@ -38,7 +38,9 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'residuo',
-]
+    'django_cpf_cnpj',
+    'phone_field',
+    ]
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',

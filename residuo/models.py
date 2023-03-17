@@ -1,13 +1,16 @@
+from django_cpf_cnpj.fields import CPFField
+from phone_field import PhoneField
 from django.db import models
+
 
 # Create your models here.
 
 class Pessoa(models.Model):
-    cpf = models.CharField(max_length=45,null=False)
+    cpf = CPFField(masked=True)
     nome = models.CharField(max_length=45,null=False)
-    email = models.CharField(max_length=45,null=False)
+    email = models.EmailField(max_length=45,null=False)
     senha = models.CharField(max_length=45,null=False)
-    telefone = models.CharField(max_length=45,null=False)
+    telefone = PhoneField(blank=True, help_text='Telefone de contato')
 
     def __str__(self):
         return self.nome

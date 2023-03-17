@@ -3,6 +3,7 @@ from django import forms
 from .models import Pessoa, Endereco, Solicitacao, Categoria, Residuo
 
 class PessoaForm(forms.ModelForm):
+    password = forms.CharField(widget=forms.PasswordInput)
     class Meta:
         model = Pessoa
         fields = ['cpf', 'nome', 'email', 'senha', 'telefone']
