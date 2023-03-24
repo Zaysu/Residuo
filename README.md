@@ -13,9 +13,16 @@ Ativando Ambiente: ./venv/scripts/activate
 
 Instalando Dependências: python -r install requirements.txt
 
-Rodando Django:
+Rodando o projeto pela primeira vez:
+python manage.py makemigrations
+python manage.py migrate
+python manage.py createsuperuser
 
+Rodando Django:
 python manage.py runserver
+
+Abrindo a página do Django Admin:
+http://localhost:porta/admin/
 
 -----------------------------
 
@@ -32,8 +39,15 @@ Ativando Ambiente: source venv/bin/activate
 
 Instalando Dependências: python3 -r install requirements.txt
 
-Rodando Django:
+Rodando o projeto pela primeira vez:
+python3 manage.py makemigrations
+python3 manage.py migrate
+python3 manage.py createsuperuser
 
+Rodando Django:
 python3 manage.py runserver
+
+Abrindo a página do Django Admin:
+http://localhost:porta/admin/
 
 P.S .; Instale o Python 3,MySQL e clone o projeto com o <strong> git clone </strong>, antes de executar os comandos.
