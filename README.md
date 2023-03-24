@@ -1,4 +1,4 @@
-<h3 align='center'>>Sistema de Controle de Coleta Seletiva e Resíduos Tóxicos</h3>
+<h3 align='center'>Sistema de Controle de Coleta Seletiva e Resíduos Tóxicos</h3>
 
 Para rodar o projeto no Windows:
 <br>
