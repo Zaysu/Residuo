@@ -1,4 +1,5 @@
 #Sistema de Controle de Coleta Seletiva e Resíduos Tóxicos
+
 Para rodar o projeto no Windows:
 <br>
 PowerShell Permissão: Set-ExecutionPolicy Unrestricted -Scope Process
