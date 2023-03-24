@@ -24,6 +24,6 @@ Instalando Dependências: python3 -r install requirements.txt
 
 Rodando Django:
 
-python manage.py runserver
+python3 manage.py runserver
 
 P.S .; Instale o Python 3 e clone o projeto com o <strong> git clone </strong>, antes de executar os comandos.
