@@ -1,4 +1,5 @@
 Para rodar o projeto no Windows:
+<br>
 PowerShell Permissão: Set-ExecutionPolicy Unrestricted -Scope Process
 
 Criando Ambiente Virtual: python -m venv venv
@@ -14,6 +15,7 @@ python manage.py runserver
 -----------------------------
 
 Para rodar o projeto no Linux Ubuntu:
+<br>
 Criando Ambiente Virtual: python3 -m venv venv
 
 Ativando Ambiente: source venv/bin/activate
