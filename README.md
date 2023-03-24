@@ -14,9 +14,9 @@ Ativando Ambiente: ./venv/scripts/activate
 Instalando Dependências: python -r install requirements.txt
 
 Rodando o projeto pela primeira vez:
-python manage.py makemigrations
-python manage.py migrate
-python manage.py createsuperuser
+python manage.py makemigrations <br>
+python manage.py migrate <br>
+python manage.py createsuperuser <br>
 
 Rodando Django:
 python manage.py runserver
@@ -40,9 +40,9 @@ Ativando Ambiente: source venv/bin/activate
 Instalando Dependências: python3 -r install requirements.txt
 
 Rodando o projeto pela primeira vez:
-python3 manage.py makemigrations
-python3 manage.py migrate
-python3 manage.py createsuperuser
+python3 manage.py makemigrations <br>
+python3 manage.py migrate <br>
+python3 manage.py createsuperuser <br>
 
 Rodando Django:
 python3 manage.py runserver
