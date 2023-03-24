@@ -24,4 +24,4 @@ Rodando Django:
 
 python manage.py runserver
 
-P.S .; Instale o Python 3 antes de executar os comandos.
+P.S .; Instale o Python 3 e clone o projeto com o <strong> git clone </strong>, antes de executar os comandos.
