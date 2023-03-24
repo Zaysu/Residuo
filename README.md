@@ -4,7 +4,7 @@ Para rodar o projeto no Windows:
 <br>
 Abra o arquivo settings.py na pasta core, procure por <strong> databases</strong> e altere 'PASSWORD': 'digitesuasenhadomysql' conforme sua senha de usuário do mysql.
 
-Crie a database no mysql: create database residuo; 
+Crie a database no mysql: create database residuo;<br>
 PowerShell Permissão: Set-ExecutionPolicy Unrestricted -Scope Process
 
 Criando Ambiente Virtual: python -m venv venv
@@ -23,7 +23,7 @@ Para rodar o projeto no Linux Ubuntu:
 <br>
 Abra o arquivo settings.py na pasta core, procure por <strong> databases</strong> e altere 'PASSWORD': 'digitesuasenhadomysql' conforme sua senha de usuário do mysql.
 
-Crie a database no mysql: create database residuo; 
+Crie a database no mysql: create database residuo;<br>
 Instalando as dependências: sudo apt-get install python3-dev default-libmysqlclient-dev build-essential
 
 Criando Ambiente Virtual: python3 -m venv venv
