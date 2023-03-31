@@ -55,4 +55,4 @@ class Solicitacao(models.Model):
     endereco = models.ForeignKey(Endereco, on_delete=models.CASCADE)
 
     def __str__(self):
-        return self.pessoa.nome + " | " + self.data_solicitacao
+        return self.pessoa.nome + " | " + str(self.data_solicitacao)
