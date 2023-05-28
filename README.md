@@ -51,3 +51,12 @@ Abrindo a página do Django Admin:
 http://localhost:porta/admin/
 
 P.S .; Instale o Python 3,MySQL e clone o projeto com o <strong> git clone </strong>, antes de executar os comandos.
+
+_____________________________________________________________
+
+Alunos: José Carlos Romão Da Silva Junior - 202110818<br>
+        Alex Junior Mahia Amaral - 202111245<br>
+        Renan Magalhães Farias - 202011751<br>
+        Leonardo Avelar - 202110529<br>
+        Marcelo Goncalves Braga Costa - 202110474<br>
+        
