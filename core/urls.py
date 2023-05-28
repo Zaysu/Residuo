@@ -10,6 +10,7 @@ route.register(r'API-pessoa', PessoaViewSet, basename='Pessoa')
 route.register(r'API-endereco', EnderecoViewSet, basename='Endereco')
 route.register(r'API-categoria', CategoriaViewSet, basename='Categoria')
 route.register(r'API-solicitacao', SolicitacaoViewSet, basename='Solicitacao')
+route.register(r'API-residuo', ResiduoViewSet, basename='Residuo')
 
 
 urlpatterns = [
