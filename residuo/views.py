@@ -79,7 +79,7 @@ def form_residuo(request):
             }
             return render(request, 'form_residuo.html', context)
 
-################ Categoria################
+################ Categoria ################
 
 
 def form_categoria(request):
@@ -101,7 +101,7 @@ def form_categoria(request):
             }
             return render(request, 'form_categoria.html', context)
 
-################ Solicitacao################
+################ Solicitacao ################
 
 
 def form_solicitacao(request):
@@ -123,7 +123,7 @@ def form_solicitacao(request):
             }
             return render(request, 'form_solicitacao.html', context)
 
-################ LOGIN################
+################ LOGIN ################
 
 
 def form_login(request):
@@ -154,7 +154,7 @@ def form_login(request):
         return render(request, 'login.html', context)
 
 
-################ FORGOT################
+################ FORGOT ################
 def views_recuperar_senha(request):
     if request.method == 'GET':
         form = LoginRecuperar()
@@ -170,6 +170,7 @@ def views_recuperar_senha(request):
         }
         return render(request, 'recuperar_senha.html', context)
 
+################ LOGOUT ################
 
 def Logout(request):
 
