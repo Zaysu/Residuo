@@ -13,6 +13,8 @@
         <h2> Bem vindo  {% if usuario %}
            {{ usuario }}"
             {% endif %}</h2>
+            <button style="float:right"> <a href="{% url 'logout'%}">Sair </a> </button>
+
         <h2> Listar Opções </h2>
             <button> <a href="{% url 'form_index'%}"> Cadastrar Usuario </a> </button>
             <button> <a href="{% url 'form_endereco'%}"> Cadastrar Endereço </a> </button>

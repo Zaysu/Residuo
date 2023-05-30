@@ -3,6 +3,7 @@ from django.urls import path
 from residuo import views, view_listar_dados
 
 urlpatterns = [
+    path('', views.index, name='index'),
     path('home/', views.index, name='index'),
     path('Cadastro_usuario/', views.form_index, name='form_index'),
     path('Cadastro_endereco/', views.form_endereco, name='form_endereco'),
