@@ -154,10 +154,6 @@ def views_recuperar_senha(request):
         return render(request, 'recuperar_senha.html', context)
     else:
         form = LoginRecuperar(request.POST)
-        if form.is_valid():
-            cliente = form.save()
-            form = LoginRecuperar()
-        
         context = {
             'form' : form
         }
