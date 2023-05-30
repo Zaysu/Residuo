@@ -1,15 +1,24 @@
-from django.shortcuts import render
-from .forms import PessoaForm, EnderecoForm, ResiduoForm, SolicitacaoForm, CategoriaForm
-
+from django.shortcuts import render,redirect
+from .forms import PessoaForm, EnderecoForm, ResiduoForm, SolicitacaoForm, CategoriaForm, LoginForm,LoginRecuperar
+from residuo.models import Pessoa
 
 def index(request):
-    return render(request, 'index.html')
+    if request.session.get('email', False):
+        email = request.session.get('email', None)
+        usuario = Pessoa.objects.get(email=email).nome
+        context = {
+                'usuario': usuario
+            }
+        
+        return render(request, 'index.html', context)
+    else:
+        return redirect('login')
 
 def form_index(request):
     if request.method == 'GET':
         form = PessoaForm()
         context = {
-            'form' : form
+            'form' : form,
         }
         
         return render(request, 'form_index.html', context)
@@ -103,3 +112,60 @@ def form_solicitacao(request):
                 'form' : form,
             }
             return render(request, 'form_solicitacao.html', context)
+        
+################LOGIN################
+def form_login(request):
+    if request.method == 'GET':
+        form = LoginForm()
+        context = {
+            'form' : form
+        }
+        
+        return render(request, 'login.html', context)
+    else:
+        form = LoginForm(request.POST)
+        if form.is_valid():
+            email = request.POST.get("email")
+            senha = request.POST.get("senha")
+            print(email,senha)
+            if Pessoa.objects.filter(email=email).filter(senha=senha):
+                # pega u usuario
+                User_ok = Pessoa.objects.get(email=request.POST.get("email"))
+                # cria uma sessao para ele
+                user_id = request.session['email'] = User_ok.email
+                return redirect("index")
+            else:
+                return redirect("login")
+
+        context = {
+                'form' : form
+            }
+        return render(request, 'login.html', context)   
+
+
+################FORGOT################
+def views_recuperar_senha(request):
+    if request.method == 'GET':
+        form = LoginRecuperar()
+        context = {
+            'form' : form
+        }
+        
+        return render(request, 'recuperar_senha.html', context)
+    else:
+        form = LoginRecuperar(request.POST)
+        if form.is_valid():
+            cliente = form.save()
+            form = LoginRecuperar()
+        
+        context = {
+            'form' : form
+        }
+        return render(request, 'recuperar_senha.html', context)   
+    
+
+def Logout(request):
+
+        if request.session.get('email'):
+            del request.session['email']
+        return redirect("login")

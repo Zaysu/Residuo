@@ -10,6 +10,9 @@
     <body>
         <h1> Selecione opção </h1>
 
+        <h2> Bem vindo  {% if usuario %}
+           {{ usuario }}"
+            {% endif %}</h2>
         <h2> Listar Opções </h2>
             <button> <a href="{% url 'form_index'%}"> Cadastrar Usuario </a> </button>
             <button> <a href="{% url 'form_endereco'%}"> Cadastrar Endereço </a> </button>

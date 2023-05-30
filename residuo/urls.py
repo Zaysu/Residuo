@@ -14,4 +14,9 @@ urlpatterns = [
     path('listar_residuo/', view_listar_dados.listar_residuo, name='listar_residuo'),
     path('listar_solicitacao/', view_listar_dados.listar_solicitacao, name='listar_solicitacao'),
     path('listar_categoria/', view_listar_dados.listar_categoria, name='listar_categoria'),
+    
+    path('login/', views.form_login, name='login'),
+    path('forgot/', views.views_recuperar_senha, name='recuperar_senha'),
+    path('logout/', views.Logout, name='logout'),
+
 ]

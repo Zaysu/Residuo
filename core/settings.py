@@ -68,16 +68,15 @@ WSGI_APPLICATION = 'core.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.mysql',
+        'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'residuo',
-        'USER': 'root',
-        'PASSWORD': 'rootmysql',
+        'USER': 'postgres',
+        'PASSWORD': 'postgres',
         'HOST':'localhost',
-        'PORT':'3306',
+        'PORT':'5438',
     }
 }
-
-
+#docker run --name my-postgres-container -e POSTGRES_USER=postgres -e POSTGRES_PASSWORD=postgres -e POSTGRES_DB=residuo -p 5438:5432 -d postgres
 # Password validation
 # https://docs.djangoproject.com/en/4.1/ref/settings/#auth-password-validators
 
