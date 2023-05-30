@@ -8,9 +8,9 @@ from django.core.validators import MaxValueValidator
 
 class Pessoa(models.Model):
     cpf = CPFField(masked=True)
-    nome = models.CharField(max_length=255,null=False, verbose_name='Nome')
-    email = models.EmailField(max_length=255,null=False, verbose_name='E-mail')
-    senha = models.CharField(max_length=255,null=True, verbose_name='Senha')
+    nome = models.CharField(max_length=255,null=False,blank=False, verbose_name='Nome')
+    email = models.EmailField(max_length=255,null=False,blank=False, verbose_name='E-mail')
+    senha = models.CharField(max_length=255,null=False,blank=False, verbose_name='Senha')
     telefone = PhoneNumberField(blank=True, help_text='Telefone de contato', verbose_name='Telefone')
 
     def __str__(self):
