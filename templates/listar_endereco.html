@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="">
+    </head>
+    <body>
+        <table> 
+            <tr>
+                <th> Logrotouro </th>
+                <th> Numero </th>
+                <th> Bairro </th>
+                <th> Cidade </th>
+                <th> CEP </th>
+                <th> Estado </th>
+                <th> Tipo De Logrotouro </th>
+            </tr>
+        {% for p in enderecos %}
+                <tr>
+                    <td> {{ p.logradouro }} </td>
+                    <td> {{ p.numero }} </td>
+                    <td> {{ p.bairro }} </td>
+                    <td> {{ p.cidade }} </td>
+                    <td> {{ p.cep }} </td>
+                    <td> {{ p.estado }} </td>
+                    <td> {{ p.tipo_logradouro }} </td>
+                    <td> <a href="#"> Editar </a> </td>
+                </tr>
+        {% endfor %}
+        </table>
+        <button> <a href="{% url 'index'%}"> Home </a> </button>
+        
+    </body>
+</html>

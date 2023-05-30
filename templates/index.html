@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="">
+    </head>
+    <body>
+        <h1> Selecione opção </h1>
+
+        <h2> Listar Opções </h2>
+            <button> <a href="{% url 'form_index'%}"> Cadastrar Usuario </a> </button>
+            <button> <a href="{% url 'form_endereco'%}"> Cadastrar Endereço </a> </button>
+            <button> <a href="{% url 'form_residuo'%}"> Cadastrar Coleta  </a> </button>
+            <button> <a href="{% url 'form_categoria'%}"> Castrar Categoria </a> </button>
+            <button> <a href="{% url 'form_solicitacao'%}">Solicitar </a> </button>
+        
+    </body>
+</html>
