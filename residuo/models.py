@@ -12,7 +12,6 @@ class Pessoa(models.Model):
     email = models.EmailField(max_length=255,null=False,blank=False, verbose_name='E-mail')
     senha = models.CharField(max_length=255,null=False,blank=False, verbose_name='Senha')
     telefone = PhoneNumberField(blank=True, help_text='Telefone de contato', verbose_name='Telefone')
-
     def __str__(self):
         return self.nome
 

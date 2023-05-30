@@ -6,12 +6,14 @@ from residuo.models import Pessoa
 def index(request):
     if request.session.get('email', False):
         email = request.session.get('email', None)
-        usuario = Pessoa.objects.get(email=email).nome
-        context = {
-            'usuario': usuario
-        }
+        if Pessoa.objects.filter(email=email).exists():
 
-        return render(request, 'index.html', context)
+            usuario = Pessoa.objects.get(email=email).nome
+            context = {
+                'usuario': usuario
+            }
+
+            return render(request, 'index.html', context)
     else:
         return redirect('login')
 
@@ -141,9 +143,9 @@ def form_login(request):
             senha = request.POST.get("senha")
             if Pessoa.objects.filter(email=email).filter(senha=senha):
                 # pega u usuario
-                User_ok = Pessoa.objects.get(email=request.POST.get("email"))
+                User_ok = Pessoa.objects.get(email=email)
                 # cria uma sessao para ele
-                user_id = request.session['email'] = User_ok.nome
+                user_id = request.session['email'] = User_ok.email
                 return redirect("index")
             else:
                 return redirect("login")
