@@ -1,0 +1,155 @@
+/*-------------------------------------------------------------------
+ESTILO GERAL
+-------------------------------------------------------------------*/
+
+*{
+    margin: 0;
+}
+
+
+body{
+    font-family: 'Inter', sans-serif;
+    font-weight: 400;
+}
+
+
+
+/*-------------------------------------------------------------------
+TIPOGRAFIA
+-------------------------------------------------------------------*/
+
+h1, h2, h3{
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+a{
+    text-decoration: none;
+}
+
+
+
+/*-------------------------------------------------------------------
+BARRA SUPERIOR
+-------------------------------------------------------------------*/
+
+#barra-superior{
+    background-color: rgb(34, 177, 34);
+    padding: 10px;
+    border-bottom: 1px solid rgba(255,255,255,0.5);
+}
+
+
+#container-barra-superior{
+    justify-content: end;
+}
+
+
+#botao-logout{
+    background-color: transparent;
+    padding: none;
+    border: none;
+}
+
+#botao-logout a{
+    color: #FFFFFF;
+}
+
+
+
+/*-------------------------------------------------------------------
+CABEÇALHO
+-------------------------------------------------------------------*/
+
+#cabecalho{
+    background-color: rgb(34, 177, 34);
+    padding: 30px 0px;
+}
+
+
+#coluna-logo{
+    width: 20%;
+}
+
+#coluna-menu{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 80%;
+}
+
+
+nav ul li{
+    display: inline;
+    margin: 15px;
+}
+
+nav a{
+    color: #FFFFFF;
+}
+
+
+
+/*-------------------------------------------------------------------
+TÍTULO DA PÁGINA
+-------------------------------------------------------------------*/
+
+.titulo-pagina{
+    background-color: #454545;
+    color: #FFFFFF;
+    padding: 30px 0px;
+}
+
+
+
+/*-------------------------------------------------------------------
+CORPO DA PÁGINA
+-------------------------------------------------------------------*/
+
+section{
+    padding: 75px 0px;
+}
+
+
+.container{
+    display: flex;
+    width: 1200px;
+    margin: 0 auto;
+}
+
+
+.coluna{
+    width: 50%;
+}
+
+
+.container-form{
+    width: 600px;
+    padding: 50px;
+    margin: 0 auto;
+    box-shadow: 0px 0px 15px rgba(0,0,0,0.1);
+    border-radius: 30px;
+}
+
+
+
+/*-------------------------------------------------------------------
+RODAPÉ
+-------------------------------------------------------------------*/
+
+footer{
+    background-color: rgb(34, 177, 34);
+    color: #FFFFFF;
+    padding: 20px 0px;
+    text-align: center;
+}
+
+footer a{
+    color: #FFFFFF;
+}
+
+
+
+/*-------------------------------------------------------------------
+OUTROS ELEMENTOS
+-------------------------------------------------------------------*/

@@ -1,21 +1,42 @@
-<!DOCTYPE html>
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title></title>
-        <meta name="description" content="">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="">
-    </head>
-    <body>
-        <h1> Selecione opção </h1>
+{% extends "base/base.html" %}
 
-        <h2> Listar Opções </h2>
-            <button> <a href="{% url 'form_index'%}"> Cadastrar Usuario </a> </button>
-            <button> <a href="{% url 'form_endereco'%}"> Cadastrar Endereço </a> </button>
-            <button> <a href="{% url 'form_residuo'%}"> Cadastrar Coleta  </a> </button>
-            <button> <a href="{% url 'form_categoria'%}"> Castrar Categoria </a> </button>
-            <button> <a href="{% url 'form_solicitacao'%}">Solicitar </a> </button>
-        
-    </body>
-</html>
+{% load static %}
+
+{% block titulo_pagina %}
+    <h1>Sistema de Gestão de Resíduos</h1>
+{% endblock %}
+
+{% block main %}
+    <style>
+        section{
+            height: 150px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        main .container{
+            width: 900px;
+            font-size: 18px;
+        }
+
+        h2{
+            font-size: 30px;
+        }
+
+        main img{
+            margin-left: 25%;
+        }
+    </style>
+    <section>
+        <div class="container">
+            <div class="coluna">
+                <h2>Seja bem-vindo!</h2>
+                <p>Selecione uma das opções no menu para executar a ação desejada.</p>
+            </div>
+            <div class="coluna">
+                <img src="{% static 'img/reciclagem.png' %}">
+            </div>
+        </div>
+    </section>
+{% endblock %}

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        {% block title %} <title>Sistema de Gestão de Resíduos</title> {% endblock %}
+        {% load static %}
+        <link rel="stylesheet" href="{% static 'css/style.css' %}">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+    </head>
+    <body>
+        <header>
+            {% block header %}
+                <div id="barra-superior">
+                    <div class="container" id="container-barra-superior">
+                        {% block barra_superior %}
+                            <button id="botao-logout">
+                                <a href="{% url 'logout'%}"><img src="{% static 'img/icone-de-usuario.png' %}"> Sair</a>
+                            </button>
+                        {% endblock %}
+                    </div>
+                </div>
+                <div id="cabecalho">
+                    <div class="container">
+                        {% block cabecalho %}
+                            <div id="coluna-logo">
+                                <a href="{% url 'index' %}"><img src="{% static 'img/icone-de-reciclagem.png' %}"></a>
+                            </div>
+                            <div id="coluna-menu">
+                                <nav>
+                                    <ul>
+                                        <li><a href="{% url 'form_index'%}">Cadastrar usuário</a></li>
+                                        <li><a href="{% url 'form_endereco'%}">Cadastrar endereço</a></li>
+                                        <li><a href="{% url 'form_residuo'%}">Cadastrar resíduo</a></li>
+                                        <li><a href="{% url 'form_categoria'%}">Cadastrar categoria</a></li>
+                                        <li><a href="{% url 'form_solicitacao'%}">Solicitar coleta</a></li>
+                                    </ul>
+                                </nav>
+                            </div>
+                        {% endblock %}
+                    </div>
+                </div>
+                <div class="titulo-pagina">
+                    <div class="container">
+                        {% block titulo_pagina %}
+                            <h1>Título da página</h1>
+                        {% endblock %}
+                    </div>
+                </div>
+            {% endblock %}
+        </header>
+        <main>
+            {% block main %}
+            {% endblock %}
+        </main>
+        <footer>
+            {% block rodape %}
+                <p><a href="{% url 'index' %}">Sistema de Gestão de Resíduos</a> | 2023</p>
+            {% endblock %}
+        </footer>
+    </body>
+</html>
