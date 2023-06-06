@@ -18,9 +18,15 @@
                 <div id="barra-superior">
                     <div class="container" id="container-barra-superior">
                         {% block barra_superior %}
-                            <button id="botao-logout">
-                                <a href="{% url 'logout'%}"><img src="{% static 'img/icone-de-usuario.png' %}"> Sair</a>
-                            </button>
+                            {% if user.is_authenticated %}
+                                <button id="botao-logout">
+                                    <a href="{% url 'logout'%}"><img src="{% static 'img/icone-de-usuario.png' %}"> Sair</a>
+                                </button>
+                            {% else %}
+                                 <button id="botao-logout">
+                                    <a href="{% url 'login'%}"><img src="{% static 'img/icone-de-usuario.png' %}"> Entrar</a>
+                                </button>
+                            {%endif%}
                         {% endblock %}
                     </div>
                 </div>

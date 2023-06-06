@@ -1,10 +1,12 @@
 from django.shortcuts import render
+from django.contrib.auth.decorators import login_required
 from .forms import PessoaForm, EnderecoForm, ResiduoForm, SolicitacaoForm, CategoriaForm
 
 
 def index(request):
     return render(request, 'index.html')
 
+@login_required
 def form_index(request):
     if request.method == 'GET':
         form = PessoaForm()
@@ -25,6 +27,7 @@ def form_index(request):
         return render(request, 'form_index.html', context)
     
 ################Endereco################
+@login_required
 def form_endereco(request):
     if request.method == 'GET':
         form = EnderecoForm()
@@ -45,6 +48,7 @@ def form_endereco(request):
         return render(request, 'form_endereco.html', context)   
     
 ################Residuo################
+@login_required
 def form_residuo(request):
     if request.method == 'GET':
         form = ResiduoForm()
@@ -65,6 +69,7 @@ def form_residuo(request):
             return render(request, 'form_residuo.html', context)
         
 ################Categoria################
+@login_required
 def form_categoria(request):
     if request.method == 'GET':
         form = CategoriaForm()

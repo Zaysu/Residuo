@@ -17,4 +17,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('residuo.urls')),
     path('', include(route.urls)),
+    path("accounts/", include("django.contrib.auth.urls")),
+
 ]
