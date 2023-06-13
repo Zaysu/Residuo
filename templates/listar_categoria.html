@@ -6,7 +6,8 @@
         <title></title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="">
+        {% load static %}
+        <link rel="stylesheet" href="{% static 'css/style.css' %}">
     </head>
     <body>
         <table> 
@@ -15,7 +16,7 @@
             </tr>
         {% for p in categorias %}
                 <tr>
-                    <td> {{p.titulo}} </td>
+                    <td class="titulo"> {{p.titulo}} </td>
                     <td> <a href="#"> Editar </a> </td>
                 </tr>
         {% endfor %}
