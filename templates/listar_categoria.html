@@ -1,3 +1,11 @@
+{% extends "base.html" %}
+{% block titulo_pagina %}
+    <h1>Lista de categoria</h1>
+{% endblock %}
+
+{% load static %}
+
+{% block main %}
 <!DOCTYPE html>
 <html>
     <head>
@@ -6,21 +14,21 @@
         <title></title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        {% load static %}
+        
         <link rel="stylesheet" href="{% static 'css/style.css' %}">
     </head>
     <body>
-        <table> 
+        <br><br><table class="table"> 
             <tr>
-                <th> Titulo </th>
+                <th> Categorias </th>
             </tr>
         {% for p in categorias %}
                 <tr>
-                    <td class="titulo"> {{p.titulo}} </td>
+                    <td> {{p.titulo}} </td>
                     <td> <a href="#"> Editar </a> </td>
                 </tr>
         {% endfor %}
         </table>
         <button> <a href="{% url 'index'%}"> Home </a> </button>
-    </body>
 </html>
+{% endblock %}

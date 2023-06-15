@@ -1,3 +1,10 @@
+{% extends "base.html" %}
+{% block titulo_pagina %}
+    <h1>Lista de residuos</h1>
+{% endblock %}
+
+{% load static %}
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -6,10 +13,10 @@
         <title></title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        {% load static %}
         <link rel="stylesheet" href="{% static 'css/style.css' %}">
     </head>
     <body>
+        {% block main %}
         <table> 
             <tr>
                 <th> Nome do Residuo </th>
@@ -26,6 +33,7 @@
                 </tr>
         {% endfor %}
         </table>
+        {% endblock %}
         <button> <a href="{% url 'index'%}"> Home </a> </button>
     </body>
 </html>
