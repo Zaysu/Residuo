@@ -71,7 +71,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'residuo',
         'USER': 'root',
-        'PASSWORD': '@Avelar02',
+        'PASSWORD': 'mysql',
         'HOST':'localhost',
         'PORT':'3306',
     }
@@ -127,3 +127,6 @@ STATICFILES_DIRS = [
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 PHONENUMBER_DB_FORMAT = 'NATIONAL'
 PHONENUMBER_DEFAULT_REGION = 'BR'
+
+LOGIN_REDIRECT_URL = '/home/'
+LOGOUT_REDIRECT_URL = '/home/'

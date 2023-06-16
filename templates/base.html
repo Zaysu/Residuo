@@ -21,6 +21,7 @@
                             {% if user.is_authenticated %}
                                 <button id="botao-logout">
                                     <a href="{% url 'logout'%}"><img src="{% static 'img/icone-de-usuario.png' %}"> Sair</a>
+                                    <span>{{ user.username }}</span>
                                 </button>
                             {% else %}
                                  <button id="botao-logout">
@@ -39,11 +40,11 @@
                             <div id="coluna-menu">
                                 <nav>
                                     <ul>
-                                        <li><a href="{% url 'form_index'%}">Cadastrar usuário</a></li>
-                                        <li><a href="{% url 'form_endereco'%}">Cadastrar endereço</a></li>
-                                        <li><a href="{% url 'form_residuo'%}">Cadastrar resíduo</a></li>
-                                        <li><a href="{% url 'form_categoria'%}">Cadastrar categoria</a></li>
-                                        <li><a href="{% url 'form_solicitacao'%}">Solicitar coleta</a></li>
+                                        <li><a href="{% url 'form_index'%}">Cadastrar Pessoa</a></li>
+                                        <li><a href="{% url 'form_endereco'%}">Cadastrar Endereço</a></li>
+                                        <li><a href="{% url 'form_residuo'%}">Cadastrar Resíduo</a></li>
+                                        <li><a href="{% url 'form_categoria'%}">Cadastrar Categoria</a></li>
+                                        <li><a href="{% url 'form_solicitacao'%}">Solicitar Coleta</a></li>
                                     </ul>
                                 </nav>
                             </div>

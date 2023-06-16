@@ -1,24 +1,23 @@
 {% extends "base.html" %}
 
 {% block title %}
-    <title>Solicitação de Coleta</title>
+    <title>Solicitação de coleta</title>
 {% endblock %}
 
 {% block titulo_pagina %}
-    <h1>Solicitação de Coleta</h1>
+    <h1>Solicitação de coleta</h1>
 {% endblock %}
 
 {% block main %}
     <section>
         <div class="container-form">
-            <form action="." method="post">
+             <form action="{% url 'editar_solicitacao' solicitacao.id %}" method="POST">
                 {% csrf_token %}
                 <table>
                     {{form.as_table}}
                 </table>
                 <input type="submit" value="Enviar">
             </form>
-            <button><a href="{% url 'listar_solicitacao'%}">Listar solicitações</a></button>
         </div>
     </section>
 {% endblock %}

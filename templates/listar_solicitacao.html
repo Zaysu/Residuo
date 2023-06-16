@@ -34,7 +34,7 @@
                     <td> {{p.hora}} </td>
                     <td> {{p.residuo}} </td>
                     <td> {{p.endereco}} </td>
-                    <td> <a href="#"> Editar </a> </td>
+                    <td><a href="{% url 'editar_solicitacao' p.id %}"><button>Editar</button></a></td>
                 </tr>
         {% endfor %}
         </table>

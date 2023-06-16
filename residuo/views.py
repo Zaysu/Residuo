@@ -1,6 +1,7 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
 from .forms import PessoaForm, EnderecoForm, ResiduoForm, SolicitacaoForm, CategoriaForm
+from .models import Solicitacao
 
 
 def index(request):
@@ -108,3 +109,17 @@ def form_solicitacao(request):
                 'form' : form,
             }
             return render(request, 'form_solicitacao.html', context)
+       
+def editar_solicitacao(request,id):
+    data = {}
+    solicitacao = Solicitacao.objects.get(id = id)
+    form = SolicitacaoForm(request.POST or None, instance=solicitacao)
+    data['solicitacao'] = solicitacao
+    data['form'] = form
+    
+    if request.method == 'POST':
+        if form.is_valid():
+            form.save()
+            return redirect('listar_solicitacao')
+    else:
+        return render(request, 'editar_solicitacao.html', data)

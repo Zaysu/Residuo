@@ -35,3 +35,4 @@ def listar_categoria(request):
         'categorias' : categorias
     }
     return render(request, 'listar_categoria.html', context)
+
