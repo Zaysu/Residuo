@@ -1,4 +1,9 @@
 {% extends "base.html" %}
+
+{% block title %}
+    <title>Lista de endereços</title>
+{% endblock %}
+
 {% block titulo_pagina %}
     <h1>Lista de endereços</h1>
 {% endblock %}
@@ -6,42 +11,45 @@
 {% load static %}
 
 {% block main %}
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title></title>
-        <meta name="description" content="">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="{% static 'css/style.css' %}">
-    </head>
-    <body>
-        <table> 
-            <tr>
-                <th> Logrotouro </th>
-                <th> Numero </th>
-                <th> Bairro </th>
-                <th> Cidade </th>
-                <th> CEP </th>
-                <th> Estado </th>
-                <th> Tipo De Logrotouro </th>
-            </tr>
-        {% for p in enderecos %}
+<section>
+    <div class="container-table">
+        <table class="tabela-listagem">
+            <thead>
                 <tr>
-                    <td> {{ p.logradouro }} </td>
-                    <td> {{ p.numero }} </td>
-                    <td> {{ p.bairro }} </td>
-                    <td> {{ p.cidade }} </td>
-                    <td> {{ p.cep }} </td>
-                    <td> {{ p.estado }} </td>
-                    <td> {{ p.tipo_logradouro }} </td>
-                    <td> <a href="#"> Editar </a> </td>
+                    <th>Logradouro</th>
+                    <th>Tipo de logradouro</th>
+                    <th>Número</th>
+                    <th>Bairro</th>
+                    <th>Cidade</th>
+                    <th>CEP</th>
+                    <th>Estado</th>
                 </tr>
-        {% endfor %}
+            </thead>
+            <tbody>
+                {% for endereco in pagina.object_list %}
+                    <tr>
+                        <td>{{endereco.logradouro}}</td>
+                        <td>{{endereco.tipo_logradouro}}</td>
+                        <td>{{endereco.numero}}</td>
+                        <td>{{endereco.bairro}}</td>
+                        <td>{{endereco.cidade}}</td>
+                        <td>{{endereco.cep}}</td>
+                        <td>{{endereco.estado}}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
         </table>
-        <button> <a href="{% url 'index'%}"> Home </a> </button>
-        
-    </body>
-</html>
+        <div class="paginacao">
+            <span>
+                Página <b>{{pagina.number}}</b> de {{pagina.paginator.num_pages}}
+            </span>
+            {% if pagina.has_previous %}
+                <button><a href="{% url 'listar_endereco' %}?page={{pagina.previous_page_number}}">Anterior</a></button>
+            {% endif %}
+            {% if pagina.has_next %}
+                <button><a href="{% url 'listar_endereco' %}?page={{pagina.next_page_number}}">Próxima</a></button>
+            {% endif %}
+        </div>
+    </div>
+</section>
 {% endblock %}

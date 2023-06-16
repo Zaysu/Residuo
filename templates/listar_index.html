@@ -1,40 +1,49 @@
 {% extends "base.html" %}
+
+{% block title %}
+    <title>Lista de usuários</title>
+{% endblock %}
+
 {% block titulo_pagina %}
-    <h1>Lista de categoria</h1>
+    <h1>Lista de usuários</h1>
 {% endblock %}
 
 {% load static %}
 
 {% block main %}
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title></title>
-        <meta name="description" content="">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="{% static 'css/style.css' %}">
-    </head>
-    <body>
-        <table> 
-            <tr>
-                <th> Nome </th>
-                <th> CPF </th>
-                <th> Telefone </th>
-                <th> Email </th>
-            </tr>
-        {% for pessoas in pessoas %}
+<section>
+    <div class="container-table">
+        <table class="tabela-listagem">
+            <thead>
                 <tr>
-                    <td> {{pessoas.nome}} </td>
-                    <td> {{pessoas.cpf}} </td>
-                    <td> {{pessoas.telefone}} </td>
-                    <td> {{pessoas.email}} </td>
-                    <td> <a href="#"> Editar </a> </td>
+                    <th>Nome</th>
+                    <th>CPF</th>
+                    <th>Email</th>
+                    <th>Telefone</th>
                 </tr>
-        {% endfor %}
+            </thead>
+            <tbody>
+                {% for usuario in pagina.object_list %}
+                    <tr>
+                        <td>{{usuario.nome}}</td>
+                        <td>{{usuario.cpf}}</td>
+                        <td>{{usuario.email}}</td>
+                        <td>{{usuario.telefone}}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
         </table>
-        <button> <a href="{% url 'index'%}"> Home </a> </button>
-    </body>
-</html>
+        <div class="paginacao">
+            <span>
+                Página <b>{{pagina.number}}</b> de {{pagina.paginator.num_pages}}
+            </span>
+            {% if pagina.has_previous %}
+                <button><a href="{% url 'listar_pessoa' %}?page={{pagina.previous_page_number}}">Anterior</a></button>
+            {% endif %}
+            {% if pagina.has_next %}
+                <button><a href="{% url 'listar_pessoa' %}?page={{pagina.next_page_number}}">Próxima</a></button>
+            {% endif %}
+        </div>
+    </div>
+</section>
 {% endblock %}

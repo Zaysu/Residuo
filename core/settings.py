@@ -69,9 +69,9 @@ WSGI_APPLICATION = 'core.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'residuo',
+        'NAME': '',
         'USER': 'root',
-        'PASSWORD': 'mysql',
+        'PASSWORD': '',
         'HOST':'localhost',
         'PORT':'3306',
     }

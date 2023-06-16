@@ -1,39 +1,47 @@
 {% extends "base.html" %}
+
+{% block title %}
+    <title>Lista de resíduos</title>
+{% endblock %}
+
 {% block titulo_pagina %}
-    <h1>Lista de residuos</h1>
+    <h1>Lista de resíduos</h1>
 {% endblock %}
 
 {% load static %}
 
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title></title>
-        <meta name="description" content="">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="{% static 'css/style.css' %}">
-    </head>
-    <body>
-        {% block main %}
-        <table> 
-            <tr>
-                <th> Nome do Residuo </th>
-                <th> Categoria </th>
-                <th> Peculiosidade </th>
-                
-            </tr>
-        {% for p in residuos %}
+{% block main %}
+<section>
+    <div class="container-table">
+        <table class="tabela-listagem">
+            <thead>
                 <tr>
-                    <td> {{p.nome_residuo}} </td>
-                    <td> {{p.categoria}} </td>
-                    <td> {{p.peculiosidade}} </td>
-                    <td> <a href="#"> Editar </a> </td>
+                    <th>Nome do resíduo</th>
+                    <th>Categoria</th>
+                    <th>Periculosidade</th>
                 </tr>
-        {% endfor %}
+            </thead>
+            <tbody>
+                {% for residuo in pagina.object_list %}
+                    <tr>
+                        <td>{{residuo.nome_residuo}}</td>
+                        <td>{{residuo.categoria}}</td>
+                        <td>{{residuo.peculiosidade}}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
         </table>
-        {% endblock %}
-        <button> <a href="{% url 'index'%}"> Home </a> </button>
-    </body>
-</html>
+        <div class="paginacao">
+            <span>
+                Página <b>{{pagina.number}}</b> de {{pagina.paginator.num_pages}}
+            </span>
+            {% if pagina.has_previous %}
+                <button><a href="{% url 'listar_residuo' %}?page={{pagina.previous_page_number}}">Anterior</a></button>
+            {% endif %}
+            {% if pagina.has_next %}
+                <button><a href="{% url 'listar_residuo' %}?page={{pagina.next_page_number}}">Próxima</a></button>
+            {% endif %}
+        </div>
+    </div>
+</section>
+{% endblock %}

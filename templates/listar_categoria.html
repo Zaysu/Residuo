@@ -1,34 +1,43 @@
 {% extends "base.html" %}
+
+{% block title %}
+    <title>Lista de categorias de resíduos</title>
+{% endblock %}
+
 {% block titulo_pagina %}
-    <h1>Lista de categoria</h1>
+    <h1>Lista de categorias de resíduos</h1>
 {% endblock %}
 
 {% load static %}
 
 {% block main %}
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title></title>
-        <meta name="description" content="">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        
-        <link rel="stylesheet" href="{% static 'css/style.css' %}">
-    </head>
-    <body>
-        <br><br><table class="table"> 
-            <tr>
-                <th> Categorias </th>
-            </tr>
-        {% for p in categorias %}
+<section>
+    <div class="container-table">
+        <table class="tabela-listagem">
+            <thead>
                 <tr>
-                    <td> {{p.titulo}} </td>
-                    <td> <a href="#"> Editar </a> </td>
+                    <th>Título da categoria</th>
                 </tr>
-        {% endfor %}
+            </thead>
+            <tbody>
+                {% for categoria in pagina.object_list %}
+                    <tr>
+                        <td>{{categoria.titulo}}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
         </table>
-        <button> <a href="{% url 'index'%}"> Home </a> </button>
-</html>
+        <div class="paginacao">
+            <span>
+                Página <b>{{pagina.number}}</b> de {{pagina.paginator.num_pages}}
+            </span>
+            {% if pagina.has_previous %}
+                <button><a href="{% url 'listar_categoria' %}?page={{pagina.previous_page_number}}">Anterior</a></button>
+            {% endif %}
+            {% if pagina.has_next %}
+                <button><a href="{% url 'listar_categoria' %}?page={{pagina.next_page_number}}">Próxima</a></button>
+            {% endif %}
+        </div>
+    </div>
+</section>
 {% endblock %}

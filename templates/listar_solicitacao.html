@@ -1,4 +1,9 @@
 {% extends "base.html" %}
+
+{% block title %}
+    <title>Lista de solicitações</title>
+{% endblock%}
+
 {% block titulo_pagina %}
     <h1>Lista de solicitações</h1>
 {% endblock %}
@@ -6,40 +11,44 @@
 {% load static %}
 
 {% block main %}
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title></title>
-        <meta name="description" content="">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="{% static 'css/style.css' %}">
-    </head>
-    <body>
-        <table> 
-            <tr>
-                <th> Nome(Pessoa) </th>
-                <th> Status </th>
-                <th> Data </th>
-                <th> Hora </th>
-                <th> Residuo </th>
-                <th> Endereço </th>
-            </tr>
-        {% for p in solicitacoes %}
+<section>
+    <div class="container-table">
+        <table class="tabela-listagem">
+            <thead>
                 <tr>
-                    <td> {{p.pessoa}} </td>
-                    <td> {{p.status}} </td>
-                    <td> {{p.data_solicitacao}} </td>
-                    <td> {{p.hora}} </td>
-                    <td> {{p.residuo}} </td>
-                    <td> {{p.endereco}} </td>
-                    <td><a href="{% url 'editar_solicitacao' p.id %}"><button>Editar</button></a></td>
+                    <th>Nome da pessoa</th>
+                    <th>Status</th>
+                    <th>Data</th>
+                    <th>Hora</th>
+                    <th>Resíduo</th>
+                    <th>Endereço</th>
                 </tr>
-        {% endfor %}
+            </thead>
+            <tbody>
+                {% for solicitacao in pagina.object_list %}
+                    <tr>
+                        <td>{{solicitacao.pessoa}}</td>
+                        <td>{{solicitacao.status}}</td>
+                        <td>{{solicitacao.data_solicitacao}}</td>
+                        <td>{{solicitacao.hora}}</td>
+                        <td>{{solicitacao.residuo}}</td>
+                        <td>{{solicitacao.endereco}}</td>
+                        <td><a href="{% url 'editar_solicitacao' solicitacao.id %}"><button>Editar</button></a></td>
+                    </tr>
+                {% endfor %}
+            </tbody>
         </table>
-        <button> <a href="{% url 'index'%}"> Home </a> </button>
-
-    </body>
-</html>
+        <div class="paginacao">
+            <span>
+                Página <b>{{pagina.number}}</b> de {{pagina.paginator.num_pages}}
+            </span>
+            {% if pagina.has_previous %}
+                <button><a href="{% url 'listar_solicitacao' %}?page={{pagina.previous_page_number}}">Anterior</a></button>
+            {% endif %}
+            {% if pagina.has_next %}
+                <button><a href="{% url 'listar_solicitacao' %}?page={{pagina.next_page_number}}">Próxima</a></button>
+            {% endif %}
+        </div>
+    </div>
+</section>
 {% endblock %}

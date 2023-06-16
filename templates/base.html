@@ -11,6 +11,7 @@
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+        {% block head_tags %}{% endblock %}
     </head>
     <body>
         <header>
@@ -21,7 +22,6 @@
                             {% if user.is_authenticated %}
                                 <button id="botao-logout">
                                     <a href="{% url 'logout'%}"><img src="{% static 'img/icone-de-usuario.png' %}"> Sair</a>
-                                    <span>{{ user.username }}</span>
                                 </button>
                             {% else %}
                                  <button id="botao-logout">
@@ -40,11 +40,11 @@
                             <div id="coluna-menu">
                                 <nav>
                                     <ul>
-                                        <li><a href="{% url 'form_index'%}">Cadastrar Pessoa</a></li>
-                                        <li><a href="{% url 'form_endereco'%}">Cadastrar Endereço</a></li>
-                                        <li><a href="{% url 'form_residuo'%}">Cadastrar Resíduo</a></li>
-                                        <li><a href="{% url 'form_categoria'%}">Cadastrar Categoria</a></li>
-                                        <li><a href="{% url 'form_solicitacao'%}">Solicitar Coleta</a></li>
+                                        <li><a href="{% url 'form_index'%}">Cadastrar usuário</a></li>
+                                        <li><a href="{% url 'form_endereco'%}">Cadastrar endereço</a></li>
+                                        <li><a href="{% url 'form_residuo'%}">Cadastrar resíduo</a></li>
+                                        <li><a href="{% url 'form_categoria'%}">Cadastrar categoria</a></li>
+                                        <li><a href="{% url 'form_solicitacao'%}">Solicitar coleta</a></li>
                                     </ul>
                                 </nav>
                             </div>
@@ -66,7 +66,9 @@
         </main>
         <footer>
             {% block rodape %}
-                <p><a href="{% url 'index' %}">Sistema de Gestão de Resíduos</a> | 2023</p>
+                <div class="container">
+                    <p><a href="{% url 'index' %}">Sistema de Gestão de Resíduos</a> | 2023</p>
+                </div>
             {% endblock %}
         </footer>
     </body>
